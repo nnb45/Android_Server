@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        PRODUCT FORM
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" action="/products/new" enctype="multipart/form-data">
+                            <input type="text" name="name" value="{{product.product_name}}"
+                                placeholder="Nhập tên sản phẩm" /> <br />
+                            <input type="number" name="price" value="{{product.price}}" placeholder="Nhập giá tiền" />
+                            <br />
+                            <input type="number" name="quantity" value="{{product.quantity}}"
+                                placeholder="Nhập số lượng" /> <br />
+                            <textarea name="description">{{product.description}}</textarea> <br />
+                            <input type="file" name="image" onchange="loadFile(event);" /> <br />
+                            <img width="300" height="250" id="img-display" alt="Image" src="{{product.image}}" /> <br />
+                            <select name="categoryId">
+                                {{#each categories}}
+                                <option value="{{this.id}}">{{this.category_name}}</option>
+                                {{/each}}
+                            </select> <br />
+                            </select> <br />
+                            <input type="submit" value="Edit" />
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        const loadFile = function (event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('img-display');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>

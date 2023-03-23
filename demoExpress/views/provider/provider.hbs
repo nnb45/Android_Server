@@ -1,0 +1,29 @@
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="font-weight: bold">
+                        PROVIDER FORM
+                    </div> <br>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="/users/login">
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input class="form-control" type="text" name="product_name"
+                                    value="{{provider.provider_name}}" />
+                            </div>
+                            <div class="form-group">
+                                <label>Provider Describe</label>
+                                <input class="form-control" type="text" name="category_name"
+                                    value="{{provider.provider_desc}}" />
+                            </div>
+                            <button type="submit" class="btn btn-info">Submit </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
