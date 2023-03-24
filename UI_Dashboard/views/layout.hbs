@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <!-- Nucleo Icons -->
+    <link href="/stylesheets/nucleo-icons.css" rel="stylesheet" />
+    <link href="/stylesheets/nucleo-svg.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link id="pagestyle" href=" /stylesheets/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <link href="/stylesheets/soft-ui-dashboard.css.map" rel="stylesheet" />
+    <!-- Product CSS -->
+    <link href="/stylesheets/products.css" rel="stylesheet" />
+
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/perfect-scrollbar.min.js"></script>
+    <script src="/javascripts/smooth-scrollbar.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</head>
+
+<body>
+    {{{body}}}
+
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    {{!--
+    <script src="/javascripts/soft-ui-dashboard.min.js?v=1.0.7"></script> --}}
+    <script src="/javascripts/soft-ui-dashboard.min.js"></script>
+
+
+</body>
+
+</html>

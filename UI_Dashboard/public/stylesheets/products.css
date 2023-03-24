@@ -1,0 +1,262 @@
+.wrapper {
+    margin-top: 30px;
+    display: block;
+}
+
+/* .wrapper div {
+    display: block;
+} */
+
+.container1 {
+    /* display: block; */
+    display: flex;
+    /* flex: 1 0 100%; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* .container-fluid1
+{
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+} */
+.col1 {
+    padding: 10px;
+}
+
+.col1-md-6 {
+    /* flex: 1; */
+    width: 60%;
+    margin: auto;
+}
+
+.panel-heading {
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.panel-body {}
+
+.product-details {
+    padding: 10px;
+}
+
+.font-weight-bold {
+    font-weight: bolder;
+    color: black;
+    font-size: 18px;
+}
+
+.weight {
+
+    margin-top: -65px;
+    transition: all 0.5s;
+}
+
+.weight small {
+
+    color: #e2dede;
+}
+
+.buttons {
+    padding: 10px;
+    background-color: #d6d4d44f;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 7px;
+    opacity: 0;
+    transition: all 0.8s;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-delete {
+    background-color: crimson;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: crimson;
+    color: #fff;
+}
+.btn-warning{
+    color: black;
+    width: 50;
+}
+.btn-warning:hover{
+    color: black;
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    left: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    color: #fff;
+    opacity: 0;
+}
+
+.cart-button {
+    height: 48px
+}
+
+.cart-button:focus {
+    box-shadow: none
+}
+
+.cart {
+    position: relative;
+    height: 48px !important;
+    width: 50px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 11px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 1s ease-in-out;
+    overflow: hidden;
+}
+
+.cart-button.clicked span.dot {
+    animation: item 0.3s ease-in forwards
+}
+
+.flex-row {
+    flex-direction: row !important;
+}
+
+.d-flex {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+@keyframes item {
+    0% {
+        opacity: 1;
+        top: 30%;
+        left: 30%
+    }
+
+    25% {
+        opacity: 1;
+        left: 26%;
+        top: 0%
+    }
+
+    50% {
+        opacity: 1;
+        left: 23%;
+        top: -22%
+    }
+
+    75% {
+        opacity: 1;
+        left: 19%;
+        top: -18%
+    }
+
+    100% {
+        opacity: 1;
+        left: 14%;
+        top: 28%
+    }
+}
+
+.add {
+    margin: auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.card1:hover .buttons {
+    opacity: 1;
+}
+
+.card1:hover .weight {
+
+    margin-top: 10px;
+}
+
+.card1:hover {
+    transform: scale(1.04);
+    z-index: 2;
+    overflow: hidden;
+}
+
+label,
+.form-label1 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #344767;
+    margin-left: 0.25rem;
+}
+
+
+.table {
+    border-collapse: inherit;
+}
+
+.table thead th {
+    padding: 0.75rem 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.table td .progress {
+    height: 3px;
+    width: 90px;
+    margin: 0;
+}
+
+.table td,
+.table th {
+    white-space: nowrap;
+}
+
+.table.align-items-center td,
+.table.align-items-center th {
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-width: 0.5;
+}
+
+.table {
+    --bs-table-color: #67748e;
+    --bs-table-bg: transparent;
+    --bs-table-border-color: #e9ecef;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #67748e;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #67748e;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #67748e;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-table-color);
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
+}
