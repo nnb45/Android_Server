@@ -1,3 +1,11 @@
+// connect to DB
+// tạo model
+const mongoose = require('mongoose');
+require('./modules/users/UserModel');
+require('./modules/categories/CategoryModel');
+require('./modules/products/ProductModel');
+
+
 var createError = require('http-errors');
 var multer = require('multer');
 var express = require('express');
@@ -5,14 +13,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-// var loginsRouter = require('./routes/login');
-var trianglesRouter = require('./routes/triangel');
-var productsRouter = require('./routes/product'); //localhost:3000/product
-var providersRouter = require('./routes/provider'); //http://localhost:3000/provider
+// khai báo router
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/product');
+const cartRouter = require('./routes/cart');
 var categoryRouter = require('./routes/category');
-
 
 
 var app = express();
@@ -29,12 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/login', loginsRouter);
-app.use('/triangle', trianglesRouter);
-app.use('/product', productsRouter);
-app.use('/provider', providersRouter);
-app.use('/categories', categoryRouter);
-
+app.use('/san-pham', productsRouter);
+app.use('/cart', cartRouter); // http://localhost:3000/cart/
+app.use('/danh-muc', categoryRouter);
 
 
 
@@ -54,4 +57,18 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+// connect to DB
+const connection = mongoose.connect('mongodb+srv://baongoc45:452003Nn@cluster0.ysjpccc.mongodb.net/test?retryWrites=true&w=majority', {
+  // const connection = mongoose.connect('mongodb+srv://baongoc45:452003Nn@cluster0.ysjpccc.mongodb.net/test', {
+  // mongodb+srv://baongoc45:452003Nn@cluster0.ysjpccc.mongodb.net/?retryWrites=true&w=majority  
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
+  .catch(err => console.log('>>>>>>>>> DB Error: ', err));
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+// const MyModel = mongoose.model('demo01', new Schema({ name: String }));
 module.exports = app;
+

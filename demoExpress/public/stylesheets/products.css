@@ -24,7 +24,8 @@
     width: 60%;
     margin: auto;
 }
-.panel-heading{
+
+.panel-heading {
     font-weight: bolder;
     margin-bottom: 15px;
 }
@@ -185,4 +186,7 @@ label,
     margin-bottom: 0.5rem;
     color: #344767;
     margin-left: 0.25rem;
+}
+.menu a:hover{
+    text-decoration: underline;
 }

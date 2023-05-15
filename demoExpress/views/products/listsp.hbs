@@ -1,0 +1,102 @@
+{{!-- <header class="menu">
+    <a href="http://localhost:3000/product"><label>Product</label></a>
+    <a href="http://localhost:3000/providers"><label>Providers</label></a>
+    <a href="http://localhost:3000/categories"><label>Categories</label></a>
+</header> --}}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Advanced Tables -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Products
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product name</th>
+                                <th>CategoryID</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each products}}
+                            <tr>
+                                <td>{{this._id}}</td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.categoryId.name}}</td>
+                                <td>{{this.price}}</td>
+                                <td>{{this.quantity}}</td>
+                                <td><img width="200" height="150" src="{{this.image}}" alt=""></td>
+                                <td>
+                                    <button class="btn" onclick="goDetail('{{this._id}}');">Edit</button>
+                                    <button class="btn btn-delete"
+                                        onclick="confirmDelete('{{this._id}}');">Delete</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                            {{!-- {{#each products}}
+                            <td>{{this._id}}</td>
+                            <td>ffff</td>
+                            <td>gggg</td>
+                            <td>cccc</td>
+                            <td>ssss</td>
+                            {{/each}} --}}
+                        </tbody>
+                    </table>
+                    <a href="http://localhost:3000/san-pham/tao-moi"><img class="add"
+                            src="https://cdn-icons-png.flaticon.com/512/189/189689.png" /></a>
+                </div>
+            </div>
+        </div>
+        <!--End Advanced Tables -->
+    </div>
+</div>
+
+<script>
+    const fetchAPI = async (url, option) => {
+        const res = await fetch(url, option);
+        return res.json();
+    }
+    const confirmDelete = (_id) => {
+        swal({
+            title: "Xác nhận xóa?",
+            text: "Xóa sẽ mất!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(async (willDelete) => {
+                if (willDelete) {
+                    let url = `/san-pham/${_id}`;
+                    let option = {
+                        method: 'DELETE'
+                    }
+                    let result = await fetchAPI(url, option);
+                    if (result.status) {
+                        swal("Xóa thành công!", {
+                            icon: "success",
+                        });
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    } else {
+                        swal("Xóa thất bại!", {
+                            icon: "error",
+                        });
+                    }
+                }
+            });
+    }
+
+    const goDetail = (_id) => {
+        window.location.href = `/san-pham/${_id}/detail`;
+    }
+
+</script>

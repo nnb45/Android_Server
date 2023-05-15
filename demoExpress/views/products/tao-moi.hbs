@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="col1-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading" style="font-weight: bold">
+                PRODUCT FORM
+            </div>
+            <div class="panel-body">
+                <form method="post" action="/san-pham/tao-moi" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="form-lable1">Product Name</label>
+                        <input class="form-control" type="text" name="name" value="{{product.name}}" placeholder="Name"
+                            onchange="validation();" />
+                        {{!-- <input class="form-control" type="text" name="name" placeholder="Name"
+                            onchange="validation();" /> --}}
+                    </div>
+                    {{!-- <div class="form-group">
+                        <label class="form-lable1">Category ID</label>
+                        <input class="form-control" type="text" name="category_name" value="{{product.categoryId}}"
+                            placeholder="CategoryId" onchange="validation();" />
+                    </div> --}}
+                    <div class="form-group">
+                        <label class="form-lable1">Price</label>
+                        <input class="form-control" type="number" name="price" value="{{product.price}}"
+                            placeholder="Nhập giá tiền" onchange="validation();" />
+                        {{!-- <input class="form-control" type="number" name="price" placeholder="Nhập giá tiền"
+                            onchange="validation();" /> --}}
+                    </div>
+                    <div class="form-group">
+                        <label class="form-lable1">Quantity</label>
+                        <input class="form-control" type="text" name="quantity" value="{{product.quantity}}"
+                            placeholder="Quantity" onchange="validation();" />
+                        {{!-- <input class="form-control" type="text" name="quantity" placeholder="Quantity"
+                            onchange="validation();" /> --}}
+                    </div>
+                    <div class="form-group">
+                        <label class="form-lable1">Description</label>
+                        <input class="form-control" type="text" name="description" value="{{product.description}}"
+                            placeholder="Description" onchange="validation();" />
+                        {{!-- <input class="form-control" type="text" name="desciption" placeholder="Description"
+                            onchange="validation();" /> --}}
+                    </div>
+                    <div class="form-group">
+                        <label class="form-lable1">Image</label>
+                        <input class="form-control" type="file" name="image" onchange="loadFile(event);"
+                            onchange="validation();" /> <br>
+                        <img width="300" height="300" id="img-display" alt="Image" src="{{product.image}}" />
+                        <br />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-lable1">Category</label>
+                        <select class="form-control" name="categoryId">
+                            {{#each categories}}
+                            <option value="{{this._id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const validation = () => {
+        const name = document.getElementById('name').value;
+        const price = $('#price').val();
+        const quantity = $('#quantity').val();
+        const description = $('#description').val();
+        const image = $('#image').val();
+        if (name && price && quantity && description && image) {
+            $('input[type="submit"]').removeAttr('disabled');
+        } else {
+            $('input[type="submit"]').attr('disabled', 'disabled');
+        }
+    }
+
+    const loadFile = function (event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('img-display');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
